@@ -13,3 +13,12 @@
 @import "layouts/index";
 @import "components/index";
 @import "pages/index";
+
+ul {
+  list-style-type: none;
+
+}
+
+a:hover {
+  text-decoration: none;
+}

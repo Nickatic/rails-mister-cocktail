@@ -1,0 +1,29 @@
+<div class="col-xs-10 col-xs-offset-1">
+  <div class="cocktail-details">
+    <div class="cocktail-card" style=<%= "background:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.1)),url(#{@cocktail.img_url})" %>>
+      <h1><%= @cocktail.name %></h1>
+    </div>
+    <div class="ingredients-card">
+      <%= link_to "Add a dose", new_cocktail_dose_path(@cocktail) %>
+      <hr>
+      <% @cocktail.doses.each do |dose| %>
+        <% ingredient_id = dose.ingredient_id %>
+        <% @ingredient = Ingredient.find(ingredient_id) %>
+        <div class="dose">
+          <div class="dose-description">
+            <h3><%= @ingredient.name %></h3>
+            <p><strong> <%= dose.description %></strong></p>
+          </div>
+          <%= link_to "delete this dose", dose_path(dose), method: :delete %>
+        </div>
+
+
+
+      <% end %>
+    </div>
+
+  </div>
+
+
+
+</div>

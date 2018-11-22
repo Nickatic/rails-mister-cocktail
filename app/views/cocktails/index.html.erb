@@ -1,0 +1,27 @@
+
+<div class="banner" style="background:url('https://images.unsplash.com/photo-1509807995916-c332365e2d9e?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=4c8d364e633e2015fbac047f327ce098&auto=format&fit=crop&w=1942&q=80')">
+</div>
+<div class="container">
+  <% @cocktails.each do |cocktail| %>
+  <div class="col-xs-12 col-sm-6 col-md-4">
+    <div class="card">
+      <div class="card-body" style=<%="background:linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.1)),url(#{cocktail.img_url})"%>>
+        <h1><%= cocktail.name %></h1>
+      </div>
+      <div class="card-footer">
+        <ul>
+          <% cocktail.doses.each do |dose|   %>
+            <% ingredient_id = dose.ingredient_id %>
+            <% @ingredient = Ingredient.find(ingredient_id) %>
+            <li><%=  "#{@ingredient.name} :  #{dose.description}"%></li>
+          <% end %>
+        </ul>
+
+
+      </div>
+      <%= link_to "", cocktail_path(cocktail), class: "card-link" %>
+    </div>
+
+  </div>
+  <% end %>
+</div>

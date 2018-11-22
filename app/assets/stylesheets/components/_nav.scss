@@ -1,0 +1,17 @@
+.cocktail-nav {
+  position: fixed !important;
+  top: 0;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  width: 100%;
+  height: 100px;
+  h1, h2 {
+    margin: 0;
+  }
+  z-index: 4;
+}
+
+
