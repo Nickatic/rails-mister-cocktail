@@ -16,7 +16,7 @@ class CocktailsController < ApplicationController
 
   def create
     @cocktail = Cocktail.new(cocktail_params)
-    url = "https://api.unsplash.com/search/photos?query=#{@cocktail.name}+cocktail&orientation=landscape&client_id=5fe258ea2bd9e5e5444ddbbc3a8bb538be5d7b41a518e87cf394221cd9b236ba"
+    url = "https://api.unsplash.com/search/photos?query=#{@cocktail.name}+cocktail+drink&orientation=landscape&client_id=5fe258ea2bd9e5e5444ddbbc3a8bb538be5d7b41a518e87cf394221cd9b236ba"
     doc = open(url).read
     json = JSON.parse(doc)
     if @cocktail.save

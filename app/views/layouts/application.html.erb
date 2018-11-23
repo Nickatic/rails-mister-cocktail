@@ -6,10 +6,12 @@
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all'%>
+    <link href="https://fonts.googleapis.com/css?family=Playball" rel="stylesheet">
   </head>
 
   <body>
+
     <div class="cocktail-nav">
       <div class="nav-left">
         <h1><%= link_to "Myster Cocktail", cocktails_path %></h1>
@@ -18,7 +20,7 @@
         <h2><%= link_to "Create a cocktail", new_cocktail_path%></h2>
       </div>
     </div>
-    <div class="content-margin">
+    <div class="content-margin-bottom content">
       <%= yield %>
     </div>
 

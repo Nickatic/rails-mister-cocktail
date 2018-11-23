@@ -30,8 +30,8 @@
 .card {
   height: 400px;
   background-size: cover !important;
-  background-position: center;
-
+  background-position: bottom;
+  margin: 10px 0;
   position: relative;
   box-shadow: 5px 3px 3px lightgrey;
 }
@@ -43,9 +43,10 @@
 
 .cocktail-card {
   flex-grow: 1;
+  background-origin: border-box !important;
   height: calc(100vh - 200px);
   background-size: cover !important;
-  background-position: center;
+  background-position: center !important;
   position: relative;
   h1 {
     position: absolute;
