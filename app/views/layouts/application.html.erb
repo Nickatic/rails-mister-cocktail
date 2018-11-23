@@ -12,17 +12,24 @@
 
   <body>
 
-    <div class="cocktail-nav">
-      <div class="nav-left">
-        <h1><%= link_to "Myster Cocktail", cocktails_path %></h1>
-      </div>
-      <div class="right-nav">
-        <h2><%= link_to "Create a cocktail", new_cocktail_path%></h2>
-      </div>
+  <div class="cocktail-nav">
+    <div class="nav-left">
+      <h1><%= link_to "Myster Cocktail", cocktails_path %></h1>
     </div>
-    <div class="content-margin-bottom content">
-      <%= yield %>
+    <div class="right-nav">
+      <form action=<%= search_results_path %> method="post" class="search">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+        <input type="text" name="query" placeholder="Search for ingredients" class="search-input">
+        <input type="submit" class="search-button" value="Search">
+      </form>
+      <h2><%= link_to "Create a cocktail", new_cocktail_path%></h2>
     </div>
+  </div>
+  <div class="content-margin-bottom content">
+    <%= yield %>
+  </div>
+
+
 
     <%= javascript_include_tag "application" %>
     <%= javascript_pack_tag "application" %>

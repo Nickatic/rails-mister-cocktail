@@ -9,4 +9,6 @@
 
 import 'bootstrap';
 import {displayNav} from "../components/nav"
+import { modalDose } from "../components/modal_doses"
 displayNav()
+modalDose()

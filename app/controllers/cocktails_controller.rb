@@ -19,6 +19,7 @@ class CocktailsController < ApplicationController
     url = "https://api.unsplash.com/search/photos?query=#{@cocktail.name}+cocktail+drink&orientation=landscape&client_id=5fe258ea2bd9e5e5444ddbbc3a8bb538be5d7b41a518e87cf394221cd9b236ba"
     doc = open(url).read
     json = JSON.parse(doc)
+    @cocktail.name = @cocktail.name.capitalize
     if @cocktail.save
       img_url = json["results"][0]["urls"]["raw"].split("?")[0]
       @cocktail.img_url = img_url
@@ -27,6 +28,22 @@ class CocktailsController < ApplicationController
     else
       render "new"
     end
+  end
+
+  def search
+
+    @cocktails_raw = Cocktail.all
+    @query = params["query"]
+    @cocktails = []
+    unless @query.nil?
+      @cocktails_raw.each do |cocktail|
+        cocktail.doses.each do |dose|
+          ingredient = Ingredient.find(dose.ingredient_id)
+          @cocktails << cocktail if ingredient.name.downcase.include?(@query.downcase) && !@cocktails.include?(cocktail)
+        end
+      end
+    end
+
   end
 
   private
