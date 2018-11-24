@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :doses, only: :destroy
   post "search/results", to: "cocktails#search"
   get "search/results", to: "cocktails#search"
+  root to: "cocktails#index"
 end
